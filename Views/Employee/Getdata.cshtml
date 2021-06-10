@@ -1,0 +1,478 @@
+﻿@model Employee_data.Models.EmployeeModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <button style="margin-top:2%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Employee</button><br /><br />
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Date Of Birth
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        State
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Qualification
+                    </th>
+                    <th>
+                        Email-Id
+                    </th>
+                    <th>
+                        Mobile Number
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+            </tbody>
+        </table>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">ID</label>
+                                    @Html.TextBoxFor(m => m.ID, new { @class = "form-control col-lg-3", Disabled = "Disabled" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">First Name</label>
+                                    @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control col-lg-3" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">Last Name</label>
+                                    @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control col-lg-3" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">Date Of birth</label>
+                                    @Html.TextBoxFor(m => m.DOB, new { @class = "form-control col-lg-3" , id= "datepicker" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">City</label>
+                                    @Html.TextBoxFor(m => m.City, new { @class = "form-control col-lg-3" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">State</label>
+                                    @Html.DropDownListFor(m => m.State, new List<SelectListItem>
+                                 {
+                               new SelectListItem{ Text="ANDAMAN AND NICOBAR ISLANDS" , Value = "ANDAMAN AND NICOBAR ISLANDS" },
+                               new SelectListItem{ Text="ANDHRA PRADESH", Value = "ANDHRA PRADESH" },
+                               new SelectListItem{ Text="ARUNACHAL PRADESH ", Value = "ARUNACHAL PRADESH" },
+                               new SelectListItem{ Text="ASSAM", Value = "ASSAM" },
+                               new SelectListItem{ Text="BIHAR", Value = "BIHAR" },
+                               new SelectListItem{ Text="CHANDIGARH", Value = "CHANDIGARH" },
+                               new SelectListItem{ Text="CHHATTISGARH", Value = "CHHATTISGARH" },
+                               new SelectListItem{ Text="DADRA AND NAGAR HAVELI", Value = "DADRA AND NAGAR HAVELI" },
+                               new SelectListItem{ Text="DAMAN AND DIU", Value = "DAMAN AND DIU" },
+                               new SelectListItem{ Text="GOA", Value = "GOA" },
+                               new SelectListItem{ Text="GUJARAT", Value = "GUJARAT" },
+                               new SelectListItem{ Text="HARYANA", Value = "HARYANA" },
+                               new SelectListItem{ Text="HIMACHAL PRADESH", Value = "HIMACHAL PRADESH" },
+                               new SelectListItem{ Text="JAMMU AND KASHMIR", Value = "JAMMU AND KASHMIR" },
+                               new SelectListItem{ Text="JHARKHAND ", Value = "JHARKHAND" },
+                               new SelectListItem{ Text="KARNATAKA ", Value = "KARNATAKA" },
+                               new SelectListItem{ Text="KERALA ", Value = "KERALA" },
+                               new SelectListItem{ Text="LAKSHADWEEP ", Value = "LAKSHADWEEP" },
+                               new SelectListItem{ Text="MADHYA PRADESH", Value = "MADHYA PRADESH" },
+                               new SelectListItem{ Text="MAHARASHTRA ", Value = "MAHARASHTRA" },
+                               new SelectListItem{ Text="MANIPUR ", Value = "MANIPUR" },
+                               new SelectListItem{ Text="MEGHALAYA ", Value = "MEGHALAYA" },
+                               new SelectListItem{ Text="MIZORAM ", Value = "MIZORAM" },
+                               new SelectListItem{ Text="NAGALAND ", Value = "NAGALAND" },
+                               new SelectListItem{ Text="NATIONAL CAPITAL TERRITORY OF DELHI", Value = "NATIONAL CAPITAL TERRITORY OF DELHI" },
+                               new SelectListItem{ Text="ODISHA", Value = "ODISHA" },
+                               new SelectListItem{ Text="PUDUCHERRY", Value = "PUDUCHERRY" },
+                               new SelectListItem{ Text="PUNJAB", Value = "PUNJAB" },
+                               new SelectListItem{ Text="RAJASTHAN", Value = "RAJASTHAN" },
+                               new SelectListItem{ Text="SIKKIM", Value = "SIKKIM" },
+                               new SelectListItem{ Text="TAMIL NADU", Value = "TAMIL NADU" },
+                               new SelectListItem{ Text="TELANGANA", Value = "TELANGANA" },
+                               new SelectListItem{ Text="TRIPURA", Value = "TRIPURA" },
+                               new SelectListItem{ Text="UTTAR PRADESH", Value = "UTTAR PRADESH" },
+                               new SelectListItem{ Text="UTTARAKHAND", Value = "UTTARAKHAND" },
+                               new SelectListItem{ Text="WEST BENGAL", Value = "WEST BENGAL" },
+                                 }, "Please select the state", new { @class = "form-control col-3 " })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">Country</label>
+                                    @Html.TextBoxFor(m => m.Country, new { @class = "form-control col-lg-3" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">Qualification</label>
+                                    @*@Html.TextBoxFor(m => m.Qualification, new { @class = "form-control col-lg-3" })*@
+                                    @Html.DropDownListFor(m => m.Qualification, new SelectList(ViewBag.Qualification, "Value", "key"), "Please Select Qualification", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">Emailid</label>
+                                    @Html.TextBoxFor(m => m.Emailid, new { @class = "form-control col-lg-3" })
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:1%">
+                                <div>
+                                    <label class="col-lg-3">Mobile number</label>
+                                    @Html.TextBoxFor(m => m.Mobilenumber, new { @class = "form-control col-lg-3" })
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
+                        <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+@section Scripts
+    {
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script>
+        $('#datepicker').datepicker({
+            showOtherMonths: true,
+            format: 'dd/mm/yyyy',
+        });
+    </script>
+    <script>
+
+        $('#Emailid').keyup(function () {            
+            $(".error").hide();
+            var hasError = false;
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+
+            var emailaddressVal = $("#Emailid").val();
+            if(emailaddressVal == '') {
+                $("#Emailid").after('<span class="error">Enter email address.</span>');
+                hasError = true;
+            }
+
+            else if(!emailReg.test(emailaddressVal)) {
+                $("#Emailid").after('<span class="error text-danger">Enter a valid email address.</span>');
+                hasError = true;
+            }
+
+            if(hasError == true) { return false; }
+
+        });
+    </script>
+    <script>
+        //Load Data in Table when documents is ready
+        $(document).ready(function () {
+            loadData();
+        });
+
+        //Load Data function
+        function loadData() {
+            $.ajax({
+                url: "/Employee/List",
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = '';
+                    $.each(result, function (key, item) {
+                        html += '<tr>';
+                        html += '<td>' + item.ID + '</td>';
+                        html += '<td>' + item.Firstname + '</td>';
+                        html += '<td>' + item.Lastname + '</td>';
+                        html += '<td>' + item.DOB + '</td>';
+                        html += '<td>' + item.City + '</td>';
+                        html += '<td>' + item.State + '</td>';
+                        html += '<td>' + item.Country + '</td>';
+                        html += '<td>' + item.Qualification + '</td>';
+                        html += '<td>' + item.Emailid + '</td>';
+                        html += '<td>' + item.Mobilenumber + '</td>';
+                        html += '<td><button style="color:red" href="#" onclick="return getbyID(' + item.ID + ')">Edit</button> | <button style="color:red" href="#" onclick="Delele(' + item.ID + ')">Delete</button></td>';
+                        html += '</tr>';
+                    });
+                    $('.tbody').html(html);
+                },
+                error: function (errormessage) {
+                    //alert(errormessage.responseText);
+                }
+            });
+        }
+
+        //Add Data Function
+        function Add() {
+            var res = validate();
+            if (res == false) {
+                return false;
+            }
+            var empObj = {
+                Firstname: $('#Firstname').val(),
+                Lastname: $('#Lastname').val(),
+                DOB: $('#datepicker').val(),
+                City: $('#City').val(),
+                State: $('#State').val(),
+                Country: $('#Country').val(),
+                Qualification: $('#Qualification').val(),
+                Emailid: $('#Emailid').val(),
+                Mobilenumber: $('#Mobilenumber').val(),
+            };
+            $.ajax({
+                url: "/Employee/Add",
+                data: JSON.stringify(empObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    loadData();
+                    $('#myModal').modal('hide');
+                },
+                error: function (errormessage) {
+                    //alert(errormessage.responseText);
+                }
+            });
+        }
+
+        //Function for getting the Data Based upon Employee ID
+        function getbyID(ID) {
+            debugger;
+            $('#Firstname').css('border-color', 'lightgrey');
+            $('#Lastname').css('border-color', 'lightgrey');
+            $('#DOB').css('border-color', 'lightgrey');
+            $('#City').css('border-color', 'lightgrey');
+            $('#State').css('border-color', 'lightgrey');
+            $('#Country').css('border-color', 'lightgrey');
+            $('#Qualification').css('border-color', 'lightgrey');
+            $('#Emailid').css('border-color', 'lightgrey');
+            $('#Mobilenumber').css('border-color', 'lightgrey');
+            $.ajax({
+                url: "/Employee/GetbyID/" + ID,
+                type: "GET",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        $('#ID').val(item.ID);
+                        $('#Firstname').val(item.Firstname);
+                        $('#Lastname').val(item.Lastname);
+                        $('#datepicker').val(item.DOB);
+                        $('#City').val(item.City);
+                        $('#State').val(item.State);
+                        $('#Country').val(item.Country);
+                        $('#Qualification').val(item.Qualification);
+                        $('#Emailid').val(item.Emailid);
+                        $('#Mobilenumber').val(item.Mobilenumber);
+                    });               
+
+                    $('#myModal').modal('show');
+                    $('#btnUpdate').show();
+                    $('#btnAdd').hide();
+                },
+                error: function (errormessage) {
+                    //alert(errormessage.responseText);
+                }
+            });
+            return false;
+        }
+
+        //function for updating employee's record
+        function Update() {
+            var res = validate();
+            if (res == false) {
+                return false;
+            }
+            debugger;
+
+            var empObj = {
+                ID: $('#ID').val(),
+                Firstname: $('#Firstname').val(),
+                Lastname: $('#Lastname').val(),
+                DOB: $('#datepicker').val(),
+                City: $('#City').val(),
+                State: $('#State').val(),
+                Country: $('#Country').val(),
+                Qualification: $('#Qualification').val(),
+                Emailid: $('#Emailid').val(),
+                Mobilenumber: $('#Mobilenumber').val(),
+            };
+            $.ajax({
+                url: "/Employee/Update",
+                data: JSON.stringify(empObj),
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    loadData();
+                    $('#myModal').modal('hide');
+                    $('#nid').val("");
+                    $('#Firstname').val("");
+                    $('#Lastname').val("");
+                    $('#DOB').val("");
+                    $('#City').val("");
+                    $('#State').val("");
+                    $('#Country').val("");
+                    $('#Qualification').val("");
+                    $('#Emailid').val("");
+                    $('#Mobilenumber').val("");
+                },
+                error: function (errormessage) {
+                    //alert(errormessage.responseText);
+                }
+            });
+        }
+
+        //function for deleting employee's record
+        function Delele(ID) {
+            var ans = confirm("Are you sure you want to delete this Record?");
+            if (ans) {
+                $.ajax({
+                    url: "/Employee/Delete/" + ID,
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: "json",
+                    success: function (result) {
+                        loadData();
+                    },
+                    error: function (errormessage) {
+                        //alert(errormessage.responseText);
+                    }
+                });
+            }
+        }
+
+        //Function for clearing the textboxes
+        function clearTextBox() {
+            $('#Firstname').val("");
+            $('#Lastname').val("");
+            $('#DOB').val("");
+            $('#City').val("");
+            $('#State').val("");
+            $('#Country').val("");
+            $('#Qualification').val("");
+            $('#Emailid').val("");
+            $('#Mobilenumber').val("");
+            $('#btnUpdate').hide();
+            $('#btnAdd').show();
+            $('#Firstname').css('border-color', 'lightgrey');
+            $('#Lastname').css('border-color', 'lightgrey');
+            $('#DOB').css('border-color', 'lightgrey');
+            $('#City').css('border-color', 'lightgrey');
+            $('#State').css('border-color', 'lightgrey');
+            $('#Country').css('border-color', 'lightgrey');
+            $('#Qualification').css('border-color', 'lightgrey');
+            $('#Emailid').css('border-color', 'lightgrey');
+            $('#Mobilenumber').css('border-color', 'lightgrey');
+        }
+        //Valdidation using jquery
+        function validate() {
+            var isValid = true;
+            if ($('#Firstname').val().trim() == "") {
+                $('#Firstname').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#Firstname').css('border-color', 'lightgrey');
+            }
+            if ($('#Lastname').val().trim() == "") {
+                $('#Lastname').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#Lastname').css('border-color', 'lightgrey');
+            }
+            //if ($('#DOB').val().trim() == "") {
+            //    $('#DOB').css('border-color', 'Red');
+            //    isValid = false;
+            //}
+            //else {
+            //    $('#DOB').css('border-color', 'lightgrey');
+            //}
+            if ($('#City').val().trim() == "") {
+                $('#City').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#City').css('border-color', 'lightgrey');
+            }
+            if ($('#State').val().trim() == "") {
+                $('#State').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#State').css('border-color', 'lightgrey');
+            }
+            if ($('#Country').val().trim() == "") {
+                $('#Country').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#Country').css('border-color', 'lightgrey');
+            }
+            if ($('#Qualification').val().trim() == "") {
+                $('#Qualification').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#Qualification').css('border-color', 'lightgrey');
+            }
+            if ($('#Emailid').val().trim() == "") {
+                $('#Emailid').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#Emailid').css('border-color', 'lightgrey');
+            }
+            if ($('#Mobilenumber').val().trim() == "") {
+                $('#Mobilenumber').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#Mobilenumber').css('border-color', 'lightgrey');
+            }
+            return isValid;
+        }
+
+    </script>
+}
